@@ -1,0 +1,35 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title class="title">CARGA DE SALDO</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card color="primary">
+    <ion-card-header>
+      <ion-card-subtitle>Saldo disponible:</ion-card-subtitle>
+      <br>
+
+      <!-- <ion-text color="dark" *ngIf="credit?.credit"><h1><b>${{credit?.credit}}</b></h1></ion-text>
+    <ion-text color="dark" *ngIf="!credit?.credit"><h1><b>$0</b></h1></ion-text> -->
+
+      <div *ngIf="credit?.credit; else noCredit">
+        <ion-card-title class="price">$ {{credit?.credit}}</ion-card-title>
+      </div>
+
+      <ng-template #noCredit>
+        <ion-card-title class="price">$ 0</ion-card-title>
+      </ng-template>
+
+      <br>
+    </ion-card-header>
+  </ion-card>
+
+  <ion-card class="qr-btn" (click)="scan()">
+    <ion-card-content>
+      <img class="qr-img" src="../../../assets/qr-icon.png" />
+    </ion-card-content>
+  </ion-card>
+
+  <!-- <ion-button color="danger" expand="full" class="okey-btn">Escanear</ion-button> -->
+</ion-content>

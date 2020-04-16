@@ -1,0 +1,6 @@
+Deploy:
+
+npm i @babel/compat-data@7.8.0 (por si tira error)
+
+not signed nose que:
+Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass

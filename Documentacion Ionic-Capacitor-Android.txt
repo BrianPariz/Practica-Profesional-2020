@@ -1,0 +1,24 @@
+npm install -g @ionic/cli
+ionic start myNewProject blank
+ionic build
+ionic capacitor add android
+
+ESTE ES PARA COMPILAR:
+ionic capacitor copy android 
+o con update 
+ionic capacitor sync
+
+Abrir en android studio la carpeta "D:\Users\b.pariz\Desktop\Practica-Profesional-2020\CargaSaldoQR\Android"
+start en android studio
+
+
+(si angularfire2 da error usar esto en tsconfig.json)
+{
+  //...
+  compilerOptions: {
+    "skipLibCheck": true,
+    //...
+  }
+}
+
+chrome://inspect/#devices para debuggear
