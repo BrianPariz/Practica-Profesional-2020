@@ -1,5 +1,5 @@
 import { Injectable } from "@angular/core";
-import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from '@angular/fire/firestore';
+import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument, QueryFn } from '@angular/fire/firestore';
 import { Observable } from 'rxjs/internal/Observable';
 import { map } from 'rxjs/operators';
 
@@ -52,6 +52,18 @@ export class FirebaseService {
                 });
             }));
     }
+
+    getAllWithQuery(collection: string, queryFn?:QueryFn) {
+        this.objetosCollection = this.afs.collection<any>(collection, queryFn);
+        return this.objetos = this.objetosCollection.snapshotChanges()
+            .pipe(map(changes => {
+                return changes.map(action => {
+                    const data = action.payload.doc.data() as any;
+                    data.id = action.payload.doc.id;
+                    return data;
+                });
+            }));
+      }
 
     getById(id: string, collection: string) {
         this.objetoDoc = this.afs.doc<any>(`${collection}/${id}`);
