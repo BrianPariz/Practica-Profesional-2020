@@ -1,5 +1,5 @@
 {
-  "name": "CargaSaldoQR",
+  "name": "Carga Saldo QR",
   "integrations": {
     "capacitor": {}
   },
