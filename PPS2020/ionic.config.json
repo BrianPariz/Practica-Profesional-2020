@@ -1,7 +1,0 @@
-{
-  "name": "PPS2020",
-  "integrations": {
-    "cordova": {}
-  },
-  "type": "angular"
-}

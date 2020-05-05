@@ -1,0 +1,7 @@
+{
+  "name": "Alarma de Robo",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}

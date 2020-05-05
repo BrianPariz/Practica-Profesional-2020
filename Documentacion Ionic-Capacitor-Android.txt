@@ -22,3 +22,12 @@ start en android studio
 }
 
 chrome://inspect/#devices para debuggear
+
+AGREGAR ICONO:
+en android studio -> app -> res (segundo click -> new -> asset image)
+
+NPMS:
+npm i sweetalert2
+npm i @angular/fire
+npm i @ionic/storage
+npm install firebase angularfire2 --save

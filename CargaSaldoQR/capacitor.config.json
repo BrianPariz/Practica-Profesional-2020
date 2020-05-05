@@ -1,8 +1,14 @@
 {
-  "appId": "io.ionic.starter",
+  "appId": "carga.saldo.qr",
   "appName": "Carga Saldo QR",
   "bundledWebRuntime": false,
   "npmClient": "npm",
   "webDir": "www",
-  "cordova": {}
+  "plugins": {
+    "SplashScreen": {
+      "launchAutoHide": false,
+      "launchShowDuration": 0,
+      "androidSplashResourceName": "none"
+    }
+  }
 }

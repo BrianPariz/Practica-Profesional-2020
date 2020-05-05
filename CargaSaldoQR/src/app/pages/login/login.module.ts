@@ -9,6 +9,7 @@ import { LoginPage } from './login.page';
 @NgModule({
   imports: [
     CommonModule,
+    FormsModule,
     IonicModule,
     RouterModule.forChild([
       {
@@ -16,7 +17,6 @@ import { LoginPage } from './login.page';
         component: LoginPage
       }
     ]),
-    FormsModule,
     ReactiveFormsModule,
   ],
   declarations: [LoginPage]

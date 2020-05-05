@@ -29,11 +29,11 @@
         </div>
         <br>
         <div class="group">
-          <ion-button shape="round" type="submit" [disabled]="!form.valid">Ingresar</ion-button>
+          <ion-button color="dark" shape="round" type="submit" [disabled]="!form.valid">Ingresar</ion-button>
         </div>
 
         <div class="defaultUsers">
-          <ion-chip color="warning" *ngFor="let user of defaultUsers" (click)="onSubmitLogin(user)">
+          <ion-chip color="dark" *ngFor="let user of defaultUsers" (click)="onSubmitLogin(user)">
             <ion-label color="light">{{user.email}}</ion-label>
           </ion-chip>
         </div>
