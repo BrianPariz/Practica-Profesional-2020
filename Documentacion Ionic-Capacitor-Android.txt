@@ -31,3 +31,7 @@ npm i sweetalert2
 npm i @angular/fire
 npm i @ionic/storage
 npm install firebase angularfire2 --save
+
+
+
+D:\Users\b.pariz\Desktop\Practica-Profesional-2020

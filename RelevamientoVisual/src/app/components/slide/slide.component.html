@@ -15,26 +15,34 @@
 
 <ion-slides [options]="slideOpts" #slides [pager]="true">
   <ion-slide *ngFor="let image of images">
-    <ion-card>
+    <ion-card color="dark" class="card">
       <ion-card-header>
         <ion-card-content>
           <img src={{image.url}}>
+          <span class="top-left">{{image.date | date:'dd-MM-yyyy'}}</span>
         </ion-card-content>
         <ion-card-title>
-          <span>Subida por: {{image.user}} - Votos: {{image.votes}}</span>
-          <br>
-          <span>Fecha: {{image.date | date:'dd-MM-yyyy'}}</span>
+          <div *ngIf="images?.length > 0">
+            <ion-fab class="btn-vote" horizontal="start" (click)="vote(0)">
+              <ion-fab-button size="small" color="warning">
+                <ion-icon name="thumbs-down"></ion-icon>
+              </ion-fab-button>
+            </ion-fab>
+            <ion-fab class="btn-vote" horizontal="end" (click)="vote(1)">
+              <ion-fab-button size="small" color="warning">
+                <ion-icon name="thumbs-up"></ion-icon>
+              </ion-fab-button>
+            </ion-fab>
+            <span>Subida por: {{image.user}}</span>
+            <br>
+            <span>Votos: {{image.votes}}</span>
+          </div>
         </ion-card-title>
       </ion-card-header>
     </ion-card>
   </ion-slide>
 </ion-slides>
 
-<div *ngIf="images?.length > 0">
-  <ion-icon (click)="vote(0)" class="thumb ion-float-left" name="thumbs-down"></ion-icon>
-  <ion-icon (click)="vote(1)" class="thumb ion-float-right" style="color:blue" name="thumbs-up"></ion-icon>
-</div>
-
-<ion-item class="ion-text-center" *ngIf="images?.length==0">
-  <ion-label>Sin imágenes que mostrar</ion-label>
+<ion-item color="dark" class="ion-text-center" *ngIf="images?.length==0">
+  <ion-label color="light">Sin imágenes que mostrar</ion-label>
 </ion-item>

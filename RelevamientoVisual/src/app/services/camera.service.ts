@@ -15,32 +15,33 @@ import { NotificationService } from './notification.service';
 export class CameraService {
 
   constructor(
-    private camera: Camera, 
+    private camera: Camera,
     private file: File,
     private localNotifications: LocalNotifications,
-    private toastController: ToastController,
     private afs: AngularFirestore,
     private afsAuth: AngularFireAuth,
     private global: Global,
     private notificationService: NotificationService
   ) { }
 
-  async takePhoto(type:string){
+  async takePhoto(type: string) {
     const options: CameraOptions = {
       quality: 75,
       destinationType: this.camera.DestinationType.FILE_URI,
       encodingType: this.camera.EncodingType.JPEG,
       mediaType: this.camera.MediaType.PICTURE,
       saveToPhotoAlbum: true,
+      correctOrientation: true
     }
-    try{
+    try {
       let cameraInfo = await this.camera.getPicture(options);
-      let blobInfo:any = await this.makeFileIntoBlob(cameraInfo);
+      debugger;
+      let blobInfo: any = await this.makeFileIntoBlob(cameraInfo);
       await this.uploadToFirebase(blobInfo, type);
       this.notificationService.presentToast('Subida Realizada con Éxito', "success");
       let currentUser = this.getCurrentUser().email.split('@')[0];
-      this.setDocument("images", blobInfo.fileName, { "user" : currentUser, "date": Date.now() })
-    } 
+      this.setDocument("images", blobInfo.fileName, { "user": currentUser, "date": Date.now() })
+    }
     catch (e) { }
   }
 
@@ -63,7 +64,7 @@ export class CameraService {
           let imgBlob = new Blob([buffer], {
             type: "image/jpeg"
           });
-          
+
           // pass back blob and the name of the file for saving into fire base
           resolve({
             fileName,
@@ -84,11 +85,11 @@ export class CameraService {
         (_snap: any) => {
           let percentage = Math.floor((_snap.bytesTransferred / _snap.totalBytes) * 100);
           console.log("progess: " + percentage);
-            this.localNotifications.schedule({
-              id: 1,
-              text: 'Uploading Image ' + _imageBlobInfo.fileName,
-              progressBar: { "value":  percentage}
-            });
+          this.localNotifications.schedule({
+            id: 1,
+            text: 'Uploading Image ' + _imageBlobInfo.fileName,
+            progressBar: { "value": percentage }
+          });
         },
         _error => {
           console.log(_error);
@@ -103,25 +104,25 @@ export class CameraService {
     });
   }
 
-  getAllImages(type){
+  getAllImages(type) {
     return new Promise((resolve, reject) => {
       resolve(firebase.storage().ref("images").child(type).listAll());
     })
   }
 
-  setDocument(collection:string, id:string, object:object): void {
+  setDocument(collection: string, id: string, object: object): void {
     this.afs.collection(collection).doc(id).set(object);
   }
 
-  getOnce(collection, id){
+  getOnce(collection, id) {
     return this.afs.collection(collection).doc(id).get().toPromise();
   }
 
-  getCurrentUser(){
+  getCurrentUser() {
     return this.afsAuth.auth.currentUser;
   }
 
-  getObservableFromDocument(collection, id){
+  getObservableFromDocument(collection, id) {
     return this.afs.collection(collection).doc(id).valueChanges();
   }
 
