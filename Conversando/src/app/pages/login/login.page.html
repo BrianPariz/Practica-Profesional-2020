@@ -1,0 +1,50 @@
+<ion-content [fullscreen]="true" class="background-image">
+
+  <ion-card class="card-style">
+    <ion-card-header>
+      <!-- <ion-card-subtitle>Card Subtitle</ion-card-subtitle> -->
+      <ion-card-title color="dark" class="title">Iniciar Sesión</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <form class="form" [formGroup]="form" (ngSubmit)="onSubmitLogin(form.value)">
+        <ion-item>
+          <ion-label color="dark" position="floating">Correo electrónico</ion-label>
+          <ion-input type="text" class="input" formControlName="email" required></ion-input>
+        </ion-item>
+        <div class="validation-errors">
+          <ng-container *ngFor="let validation of validation_messages.email">
+            <div class="error-message"
+              *ngIf="form.get('email').hasError(validation.type) && (form.get('email').dirty || form.get('email').touched)">
+              {{ validation.message }}
+            </div>
+          </ng-container>
+        </div>
+
+        <ion-item>
+          <ion-label color="dark" position="floating">Contraseña</ion-label>
+          <ion-input type="password" class="input" formControlName="password" data-type="password" required></ion-input>
+        </ion-item>
+        <div class="validation-errors">
+          <ng-container *ngFor="let validation of validation_messages.password">
+            <div class="error-message"
+              *ngIf="form.get('password').hasError(validation.type) && (form.get('password').dirty || form.get('password').touched)">
+              {{ validation.message }}
+            </div>
+          </ng-container>
+        </div>
+
+        <br>
+        <div class="group">
+          <ion-button color="dark" type="submit" [disabled]="!form.valid">Ingresar</ion-button>
+        </div>
+
+        <div class="defaultUsers">
+          <ion-chip color="dark" *ngFor="let user of defaultUsers" (click)="onSubmitLogin(user)">
+            <ion-label color="dark">{{user.email}}</ion-label>
+          </ion-chip>
+        </div>
+      </form>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

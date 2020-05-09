@@ -19,6 +19,7 @@ import { File } from '@ionic-native/file/ngx';
 import { LocalNotifications } from '@ionic-native/local-notifications/ngx';
 import { Camera } from '@ionic-native/camera/ngx';
 import { Global } from './global';
+import { IonicStorageModule } from '@ionic/storage';
 
 
 @NgModule({
@@ -27,6 +28,7 @@ import { Global } from './global';
   imports: [
     BrowserModule, 
     IonicModule.forRoot(),
+    IonicStorageModule.forRoot(),
     AppRoutingModule,
     AngularFireAuthModule,
     ReactiveFormsModule,

@@ -1,43 +1,104 @@
-<ion-content>
-  <div class="login-wrap">
-    <div class="login-html">
-      <span class="tab">Iniciar Sesión</span>
-      <form class="form" [formGroup]="validations_form" (ngSubmit)="loginUser(validations_form.value)">
-        <div class="group">
-          <ion-label for="user" class="label">Email</ion-label>
-          <input type="text" class="input" formControlName="email" required>
-        </div>
-        <div class="validation-errors">
-            <ng-container *ngFor="let validation of validation_messages.email">
-              <div class="error-message" *ngIf="validations_form.get('email').hasError(validation.type) && (validations_form.get('email').dirty || validations_form.get('email').touched)">
-                {{ validation.message }}
-              </div>
-            </ng-container>
-          </div>
-        <div class="group">
-          <ion-label for="pass" class="label">Contraseña</ion-label>
-          <input type="password" class="input" formControlName="password" data-type="password" required>
-        </div>
-        <div class="validation-errors">
-          <ng-container *ngFor="let validation of validation_messages.password">
-            <div class="error-message" *ngIf="validations_form.get('password').hasError(validation.type) && (validations_form.get('password').dirty || validations_form.get('password').touched)">
-              {{ validation.message }}
+<ion-content class="bg-img" color="dark">
+    <div class="main-content">
+      <div class="ion-padding ion-text-center" class="container-logo" style="text-align: center;">
+        <img class="imagen" src="../../../assets/visual.png">
+      </div>
+      <div class="ion-padding ion-text-center" class="socialLogin">
+
+        <form class="form" [formGroup]="form" (ngSubmit)="onSubmitLogin(form.value)">
+          <div class="ion-padding" class="container-bottom">
+            <ion-item color="dark" padding-right>
+              <ion-label>
+                <ion-icon color="warning" ios="ios-mail" md="md-mail"></ion-icon>
+              </ion-label>
+              <ion-input id="email" type="text" formControlName="email" required placeholder="Correo"></ion-input>
+            </ion-item>
+            <div class="validation-errors">
+              <ng-container *ngFor="let validation of validation_messages.email">
+                <div class="error-message"
+                  *ngIf="form.get('email').hasError(validation.type) && (form.get('email').dirty || form.get('email').touched)">
+                  {{ validation.message }}
+                </div>
+              </ng-container>
             </div>
-          </ng-container>
-        </div>
-        <br>
-        <div class="group">
-          <ion-button shape="round" type="submit" [disabled]="!validations_form.valid">Ingresar</ion-button>
-          <label class="error-message">{{errorMessage}}</label>
-        </div>
-      </form>
-      <div class="hr"></div>
-      <ion-item>
-          <ion-label>Usuarios</ion-label>
-          <ion-select okText="Aceptar" cancelText="Cancelar" [(ngModel)]="user" (ionChange)="setDefaultUser()">
-            <ion-select-option *ngFor="let user of defaultUsers" [value] = "user">{{user.email}}</ion-select-option>
-          </ion-select>
-        </ion-item>
+
+            <ion-item color="dark">
+              <ion-label>
+                <ion-icon color="warning" ios="ios-unlock" md="md-unlock"></ion-icon>
+              </ion-label>
+              <ion-input type="password" id="password" formControlName="password" required placeholder="Contraseña">
+              </ion-input>
+            </ion-item>
+            <div class="validation-errors">
+              <ng-container *ngFor="let validation of validation_messages.password">
+                <div class="error-message"
+                  *ngIf="form.get('password').hasError(validation.type) && (form.get('password').dirty || form.get('password').touched)">
+                  {{ validation.message }}
+                </div>
+              </ng-container>
+            </div>
+
+            <br>
+            <div class="group">
+              <ion-button color="warning" type="submit" expand="block" fill="outline" [disabled]="!form.valid">Ingresar
+              </ion-button>
+            </div>
+          </div>
+        </form>
+      </div>
     </div>
-  </div>  
+
+    <div class="defaultUsers">
+      <ion-chip color="warning" *ngFor="let user of defaultUsers" (click)="onSubmitLogin(user)">
+        <ion-label color="warning">{{user.email}}</ion-label>
+      </ion-chip>
+    </div>
 </ion-content>
+
+<!-- 
+<ion-card class="card-style">
+  <ion-card-header>
+    <ion-card-title class="title">Iniciar Sesión</ion-card-title>
+  </ion-card-header>
+
+  <ion-card-content>
+    <form class="form" [formGroup]="form" (ngSubmit)="onSubmitLogin(form.value)">
+      <ion-item>
+        <ion-label position="floating">Correo electrónico</ion-label>
+        <ion-input type="text" class="input" formControlName="email" required></ion-input>
+      </ion-item>
+      <div class="validation-errors">
+        <ng-container *ngFor="let validation of validation_messages.email">
+          <div class="error-message"
+            *ngIf="form.get('email').hasError(validation.type) && (form.get('email').dirty || form.get('email').touched)">
+            {{ validation.message }}
+          </div>
+        </ng-container>
+      </div>
+
+      <ion-item>
+        <ion-label position="floating">Contraseña</ion-label>
+        <ion-input type="password" class="input" formControlName="password" data-type="password" required></ion-input>
+      </ion-item>
+      <div class="validation-errors">
+        <ng-container *ngFor="let validation of validation_messages.password">
+          <div class="error-message"
+            *ngIf="form.get('password').hasError(validation.type) && (form.get('password').dirty || form.get('password').touched)">
+            {{ validation.message }}
+          </div>
+        </ng-container>
+      </div>
+
+      <br>
+      <div class="group">
+        <ion-button color="dark" type="submit" [disabled]="!form.valid">Ingresar</ion-button>
+      </div>
+
+      <div class="defaultUsers">
+        <ion-chip color="warning" *ngFor="let user of defaultUsers" (click)="onSubmitLogin(user)">
+          <ion-label color="light">{{user.email}}</ion-label>
+        </ion-chip>
+      </div>
+    </form>
+  </ion-card-content>
+</ion-card> -->

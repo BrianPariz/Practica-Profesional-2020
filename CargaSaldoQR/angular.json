@@ -10,31 +10,29 @@
       "projectType": "application",
       "prefix": "app",
       "schematics": {
-        "schematics": {
-          "@ionic/angular-toolkit:component": {
-            "styleext": "scss",
-            "spec": false
-          },
-          "@ionic/angular-toolkit:page": {
-            "styleext": "scss",
-            "spec": false
-          },
-          "@ionic/angular-toolkit:directive": {
-            "spec": false
-          },
-          "@ionic/angular-toolkit:guard": {
-            "spec": false
-          },
-          "@ionic/angular-toolkit:module": {
-            "spec": false
-          },
-          "@ionic/angular-toolkit:pipe": {
-            "spec": false
-          },
-          "@ionic/angular-toolkit:service": {
-            "spec": false
-          }
-        }
+		  "@ionic/angular-toolkit:component": {
+			"styleext": "scss",
+			"spec": false
+		  },
+		  "@ionic/angular-toolkit:page": {
+			"styleext": "scss",
+			"spec": false
+		  },
+		  "@ionic/angular-toolkit:directive": {
+			"spec": false
+		  },
+		  "@ionic/angular-toolkit:guard": {
+			"spec": false
+		  },
+		  "@ionic/angular-toolkit:module": {
+			"spec": false
+		  },
+		  "@ionic/angular-toolkit:pipe": {
+			"spec": false
+		  },
+		  "@ionic/angular-toolkit:service": {
+			"spec": false
+		  }
       },
       "architect": {
         "build": {
