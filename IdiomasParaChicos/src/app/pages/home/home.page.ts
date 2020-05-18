@@ -13,8 +13,7 @@ export class HomePage {
   constructor(private loadingService: LoadingService, private global: Global) { }
 
   next(language: string) {
-    this.loadingService.showLoading("Espere..");
     this.global.language = language;
-    this.loadingService.closeLoadingAndRedirect("/tabs");
+    this.loadingService.redirectOnly("/tema");
   }
 }

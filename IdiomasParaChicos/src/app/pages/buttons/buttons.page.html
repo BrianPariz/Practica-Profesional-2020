@@ -1,0 +1,186 @@
+<ion-content [fullscreen]="true" class="background-image">
+
+  <ion-grid>
+    <ion-row class="top-row">
+      <ion-col>
+        <div class="button">
+
+          <ng-container *ngIf="tema=='animales'">
+            <ion-img class="image" src="../../../assets/imgs/leon.png" class="ion-align-self-end"
+              (click)="sound('leon')"></ion-img>
+          </ng-container>
+
+          <ng-container *ngIf="tema=='colores'">
+            <ion-img class="image" src="../../../assets/imgs/azul.png" class="ion-align-self-end"
+              (click)="sound('azul')"></ion-img>
+          </ng-container>
+
+          <ng-container *ngIf="tema=='numeros'">
+            <ion-img class="image" src="../../../assets/imgs/uno.png" class="ion-align-self-end" (click)="sound('uno')">
+            </ion-img>
+          </ng-container>
+
+        </div>
+      </ion-col>
+      <ion-col>
+        <div class="button">
+
+          <ng-container *ngIf="tema=='animales'">
+            <ion-img class="image" src="../../../assets/imgs/mono.png" class="ion-align-self-end"
+              (click)="sound('mono')"></ion-img>
+          </ng-container>
+
+          <ng-container *ngIf="tema=='colores'">
+            <ion-img class="image" src="../../../assets/imgs/rojo.png" class="ion-align-self-end"
+              (click)="sound('rojo')"></ion-img>
+          </ng-container>
+
+          <ng-container *ngIf="tema=='numeros'">
+            <ion-img class="image" src="../../../assets/imgs/dos.png" class="ion-align-self-end" (click)="sound('dos')">
+            </ion-img>
+          </ng-container>
+
+        </div>
+      </ion-col>
+    </ion-row>
+
+    <ion-row class="top-row">
+      <ion-col>
+        <div class="button">
+
+          <ng-container *ngIf="tema=='animales'">
+            <ion-img class="image" src="../../../assets/imgs/elefante.png" class="ion-align-self-end"
+              (click)="sound('elefante')"></ion-img>
+          </ng-container>
+
+          <ng-container *ngIf="tema=='colores'">
+            <ion-img class="image" src="../../../assets/imgs/amarillo.png" class="ion-align-self-end"
+              (click)="sound('amarillo')"></ion-img>
+          </ng-container>
+
+          <ng-container *ngIf="tema=='numeros'">
+            <ion-img class="image" src="../../../assets/imgs/tres.png" class="ion-align-self-end"
+              (click)="sound('tres')">
+            </ion-img>
+          </ng-container>
+
+        </div>
+      </ion-col>
+      <ion-col>
+        <div class="button">
+
+          <ng-container *ngIf="tema=='animales'">
+            <ion-img class="image" src="../../../assets/imgs/caballo.png" class="ion-align-self-end"
+              (click)="sound('caballo')"></ion-img>
+          </ng-container>
+
+          <ng-container *ngIf="tema=='colores'">
+            <ion-img class="image" src="../../../assets/imgs/violeta.png" class="ion-align-self-end"
+              (click)="sound('violeta')"></ion-img>
+          </ng-container>
+
+          <ng-container *ngIf="tema=='numeros'">
+            <ion-img class="image" src="../../../assets/imgs/cuatro.png" class="ion-align-self-end"
+              (click)="sound('cuatro')">
+            </ion-img>
+          </ng-container>
+
+        </div>
+      </ion-col>
+    </ion-row>
+
+    <ion-row class="top-row">
+      <ion-col>
+        <div class="button">
+
+          <ng-container *ngIf="tema=='animales'">
+            <ion-img class="image" src="../../../assets/imgs/pato.png" class="ion-align-self-end"
+              (click)="sound('pato')"></ion-img>
+          </ng-container>
+
+          <ng-container *ngIf="tema=='colores'">
+            <ion-img class="image" src="../../../assets/imgs/naranja.png" class="ion-align-self-end"
+              (click)="sound('naranja')"></ion-img>
+          </ng-container>
+
+          <ng-container *ngIf="tema=='numeros'">
+            <ion-img class="image" src="../../../assets/imgs/cinco.png" class="ion-align-self-end"
+              (click)="sound('cinco')">
+            </ion-img>
+          </ng-container>
+
+        </div>
+      </ion-col>
+      <ion-col>
+        <div class="button">
+
+          <ng-container *ngIf="tema=='animales'">
+            <ion-img class="image" src="../../../assets/imgs/vaca.png" class="ion-align-self-end"
+              (click)="sound('vaca')"></ion-img>
+          </ng-container>
+
+          <ng-container *ngIf="tema=='colores'">
+            <ion-img class="image" src="../../../assets/imgs/verde.png" class="ion-align-self-end"
+              (click)="sound('verde')"></ion-img>
+          </ng-container>
+
+          <ng-container *ngIf="tema=='numeros'">
+            <ion-img class="image" src="../../../assets/imgs/seis.png" class="ion-align-self-end"
+              (click)="sound('seis')">
+            </ion-img>
+          </ng-container>
+
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-grid class="bottom-grid">
+    <ion-row>
+      <ion-col>
+        <ion-card class="card-btn">
+          <div class="button">
+            <ng-container *ngIf="idioma=='es'">
+              <ion-img class="image" src="../../../assets/imgs/es.png" class="ion-align-self-end"
+                (click)="changeLanguage('en')"></ion-img>
+            </ng-container>
+
+            <ng-container *ngIf="idioma=='en'">
+              <ion-img class="image" src="../../../assets/imgs/en.png" class="ion-align-self-end"
+                (click)="changeLanguage('pr')"></ion-img>
+            </ng-container>
+
+            <ng-container *ngIf="idioma=='pr'">
+              <ion-img class="image" src="../../../assets/imgs/pr.png" class="ion-align-self-end"
+                (click)="changeLanguage('es')"></ion-img>
+            </ng-container>
+          </div>
+        </ion-card>
+      </ion-col>
+      <ion-col>
+        <ion-card class="card-btn">
+          <div class="button">
+            <ion-img class="image" src="../../../assets/imgs/leon.png" class="ion-align-self-end"
+              (click)="changeTema('animales')"></ion-img>
+          </div>
+        </ion-card>
+      </ion-col>
+      <ion-col>
+        <ion-card class="card-btn">
+          <div class="button">
+            <ion-img class="image" src="../../../assets/imgs/azul.png" class="ion-align-self-end"
+              (click)="changeTema('colores')"></ion-img>
+          </div>
+        </ion-card>
+      </ion-col>
+      <ion-col>
+        <ion-card class="card-btn">
+          <div class="button">
+            <ion-img class="image" src="../../../assets/imgs/uno.png" class="ion-align-self-end"
+              (click)="changeTema('numeros')"></ion-img>
+          </div>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

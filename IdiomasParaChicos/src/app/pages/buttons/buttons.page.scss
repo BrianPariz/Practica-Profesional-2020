@@ -1,0 +1,30 @@
+.vertical-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.button {
+    margin: 5%;
+}
+
+.button:hover + .image {
+    max-width: 50%;
+}
+
+.background-image {
+    --background: url(../../../assets/imgs/rainbow.jpg) 0 0/100% 100% no-repeat;
+}
+
+.bottom-grid {
+    margin-top: 15%;
+}
+
+.top-row {
+    margin-top: 6%;
+}
+
+.card-btn {
+    background-color: rgb(78, 75, 75);
+}
